@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menobel Marketplace</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Adicionando a logo no header -->
+            <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="logo-image">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="nobers.html">Nobers</a></li>
+                <li><a href="experiences.html">Experiências</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <div class="login-menu">
+                <i class="fas fa-user-circle login-icon"></i>
+                <hr class="divider">
+                <div class="hamburguer-menu" id="hamburguer-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <ul>
+                        <li><a href="#">Cadastro</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Seja um Nober</a></li>
+                        <li><a href="#">Central de Ajuda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section with search input -->
+    <section class="hero">
+        <h2><span class="highlight-orange">Descubra</span> <span class="highlight-black">Referências</span> <span class="highlight-orange">Únicas</span></h2>
+        <p><span class="highlight-black">Explore</span>, <span class="highlight-orange">Reserve</span> <span class="highlight-black">ou</span> <span class="highlight-orange">Converse</span> <span class="highlight-black">com Especialistas!</span></p>
+        
+        <!-- Search bar with input and button -->
+        <div class="search-bar">
+            <input type="text" placeholder="O que você deseja experimentar?" class="search-input" id="searchInput">
+            <button class="search-button" id="searchButton">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+        </div>
+    </section>    
+
+    <!-- Experience Highlights Section -->
+    <section class="experiences-highlights">
+        <h3>Destaques de Referências</h3>
+        <div class="experiences-grid" id="results">
+            <!-- Cards serão renderizados dinamicamente aqui -->
+        </div>
+    </section>    
+
+    <footer>
+        <div class="footer-divider"></div>
+        <!-- Adicionando a logo no footer -->
+        <img src="assets/images/logo-orange-menobel-1200x600.png" alt="Menobel Logo" class="footer-logo">
+        <p>&copy; 2024 Menobel Marketplace</p>
+    </footer>
+
+    <!-- JavaScript para busca dinâmica -->
+    <script>
+        // Dados simulados (mock) das referências
+        const referencias = [
+            {
+                titulo: "Visita ao Cristo Redentor",
+                nober: "João Souza",
+                tipo: "Especialista",
+                certificacao: "Guia Turístico Licenciado",
+                avaliacao: 4.9,
+                preco: 120,
+                imagem: "assets/images/cristro-redentor.webp",
+                link: "detalhes-cristo-redentor.html"
+            },
+            {
+                titulo: "Culinária no Terraço Itália",
+                nober: "Maria Silva",
+                tipo: "Personalidade",
+                certificacao: null,
+                avaliacao: 4.8,
+                preco: 250,
+                imagem: "assets/images/terraco-italia.webp",
+                link: "detalhes-terraco-italia.html"
+            },
+            {
+                titulo: "Noite na Balada em São Paulo",
+                nober: "Carlos Mello",
+                tipo: "Especialista",
+                certificacao: "Guia de Entretenimento",
+                avaliacao: 4.7,
+                preco: 180,
+                imagem: "assets/images/balada-sp.webp",
+                link: "detalhes-balada-sp.html"
+            },
+            {
+                titulo: "Conhecer a Avenida Paulista",
+                nober: "Ana Reis",
+                tipo: "Personalidade",
+                certificacao: null,
+                avaliacao: 5.0,
+                preco: 100,
+                imagem: "assets/images/av-paulista.webp",
+                link: "detalhes-av-paulista.html"
+            }
+        ];
+
+        // Função para renderizar os resultados
+        function renderResults(items) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ""; // Limpa os resultados anteriores
+
+            items.forEach(item => {
+                const card = `
+                    <div class="experience-card">
+                        <a href="${item.link}">
+                            <img src="${item.imagem}" alt="${item.titulo}">
+                        </a>
+                        <div class="experience-info">
+                            <h4><a href="${item.link}">${item.titulo}</a></h4>
+                            <span class="tag ${item.tipo.toLowerCase()}">${item.tipo}</span>
+                            <p><strong>Nober:</strong> ${item.nober}</p>
+                            ${item.certificacao ? `<p>Certificação: ${item.certificacao}</p>` : ""}
+                            <p>Avaliação: ⭐⭐⭐⭐⭐ (${item.avaliacao})</p>
+                            <p>Preço: R$ ${item.preco.toFixed(2)}</p>
+                            <button class="chat-button"><i class="fas fa-comments"></i> Chamar no Chat</button>
+                        </div>
+                    </div>
+                `;
+                resultsContainer.innerHTML += card;
+            });
+        }
+
+        // Função para buscar referências
+        function searchReferences(query) {
+            const filteredReferences = referencias.filter(item =>
+                item.titulo.toLowerCase().includes(query.toLowerCase()) ||
+                item.nober.toLowerCase().includes(query.toLowerCase())
+            );
+            renderResults(filteredReferences);
+        }
+
+        // Event Listener para o botão de busca
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const query = document.getElementById('searchInput').value;
+            searchReferences(query);
+        });
+
+        // Exibe todos os resultados ao carregar a página
+        renderResults(referencias);
+    </script>
+
+</body>
+</html>

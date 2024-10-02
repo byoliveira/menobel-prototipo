@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja um Nober - Menobel</title>
+    <link rel="stylesheet" href="css/nobers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Adiciona Font Awesome -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Menobel</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Nobers</a></li>
+                <li><a href="#">Experiências</a></li>
+            </ul>
+        </nav>
+        <!-- <div class="user-profile">
+            <div class="login-menu">
+                <i class="fas fa-user-circle login-icon"></i>
+                <hr class="divider">
+                <div class="hamburguer-menu" id="hamburguer-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <ul>
+                        <li><a href="#">Cadastro</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Seja um Nober</a></li>
+                        <li><a href="#">Central de Ajuda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </header>
+
+    <!-- Seção principal sobre o que é ser um Nober -->
+    <section class="nobers-hero">
+        <h2><span class="highlight-orange">O Que é Ser um Nober?</span></h2>
+        <p>Como <span class="highlight-black">Nober</span>, você poderá oferecer <span class="highlight-orange">suas experiências</span> e ganhar dinheiro ajudando outras pessoas a vivenciar experiências incríveis. Seja em viagens, consultas ou bate-papos personalizados, o <span class="highlight-orange">Menobel Marketplace</span> é o lugar ideal para você conectar-se com clientes e <span class="highlight-black">monetizar suas habilidades</span>.</p>
+        <div class="nober-image">
+            <img src="assets/images/nobers-hero.jpg" alt="Imagem de Nober" />
+        </div>
+    </section>
+
+    <!-- Seção sobre como ganhar dinheiro -->
+    <section class="how-it-works">
+        <h3><span class="highlight-orange">Ganhe Dinheiro</span> Compartilhando Suas Experiências</h3>
+        <p>No <span class="highlight-black">Menobel Marketplace</span>, você tem a oportunidade de transformar suas vivências em <span class="highlight-orange">renda</span>. Seja compartilhando dicas exclusivas ou oferecendo serviços personalizados via chat, você decide o valor e o tempo de cada sessão.</p>
+        <div class="steps">
+            <div class="step">
+                <i class="fas fa-pencil-alt"></i> <!-- Ícone de Criação de Experiências -->
+                <h4>Crie suas Experiências</h4>
+                <p>Descreva suas ofertas e escolha os preços.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-comments"></i> <!-- Ícone de Conexão com Clientes -->
+                <h4>Conecte-se com Clientes</h4>
+                <p>Utilize o chat ou chamadas de vídeo para interagir diretamente com seus clientes.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-star"></i> <!-- Ícone de Avaliações -->
+                <h4>Receba Avaliações</h4>
+                <p>Clientes podem avaliar sua experiência e, quanto melhor sua avaliação, maior o destaque na plataforma.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção sobre avaliações e destaque na plataforma -->
+    <section class="reviews-highlight">
+        <h3><span class="highlight-black">Avaliações</span> que te Colocam no Topo</h3>
+        <p>Quanto melhor as suas avaliações, maior será sua <span class="highlight-orange">visibilidade</span> no marketplace. Clientes satisfeitos deixam feedbacks que ajudam você a crescer e se destacar como um Nober de excelência!</p>
+        <div class="review-example">
+            <i class="fas fa-quote-left"></i> <!-- Ícone de aspas -->
+            <blockquote>"Uma das melhores experiências que já tive! Recomendo a todos."</blockquote>
+            <p>- Cliente satisfeito</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-divider"></div> <!-- Linha divisória -->
+        <p>&copy; 2024 Menobel Marketplace</p>
+    </footer>
+
+    <!-- JavaScript para funcionar o menu hamburguer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburguerMenu = document.getElementById('hamburguer-menu');
+            const dropdownMenu = document.getElementById('dropdown-menu');
+
+            // Alterna a visibilidade do menu quando o hamburguer é clicado
+            hamburguerMenu.addEventListener('click', function (event) {
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                event.stopPropagation(); // Evita que o clique no hamburguer feche o menu
+            });
+
+            // Fecha o dropdown ao clicar em qualquer lugar fora do menu
+            document.addEventListener('click', function (event) {
+                if (dropdownMenu.style.display === 'block' && !dropdownMenu.contains(event.target) && !hamburguerMenu.contains(event.target)) {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
