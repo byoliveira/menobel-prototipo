@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menobel Chat com Sidebar</title>
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <div class="sidebar-container">
+            <!-- Logo Menobel -->
+            <div class="logo-container">
+                <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="menobel-logo">
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar conversas...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Client List (Clientes do Nober em chat) -->
+            <div class="client-list">
+                <h3>Clientes em Conversa</h3>
+
+                <!-- Cliente 1 -->
+                <div class="client-item" onclick="openChat('Cliente 1', 'online', 'assets/images/cliente1.jpg')">
+                    <div class="avatar-status">
+                        <div class="avatar-image-container">
+                            <img src="assets/images/cliente1.jpg" alt="Avatar Cliente" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fas fa-user-circle avatar-icon"></i>
+                            <span class="status online"></span>
+                        </div>
+                    </div>
+                    <div class="client-details">
+                        <h4>Cliente 1</h4>
+                        <p>Olá, Nober! Preciso de uma consulta...</p>
+                    </div>
+                </div>
+
+                <!-- Cliente 2 -->
+                <div class="client-item" onclick="openChat('Cliente 2', 'away', 'assets/images/cliente2.jpg')">
+                    <div class="avatar-status">
+                        <div class="avatar-image-container">
+                            <img src="assets/images/cliente2.jpg" alt="Avatar Cliente" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fas fa-user-circle avatar-icon"></i>
+                            <span class="status away"></span>
+                        </div>
+                    </div>
+                    <div class="client-details">
+                        <h4>Cliente 2</h4>
+                        <p>Estarei disponível mais tarde.</p>
+                    </div>
+                </div>
+
+                <!-- Cliente 3 -->
+                <div class="client-item" onclick="openChat('Cliente 3', 'offline', 'assets/images/cliente3.jpg')">
+                    <div class="avatar-status">
+                        <div class="avatar-image-container">
+                            <img src="assets/images/cliente3.jpg" alt="Avatar Cliente" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fas fa-user-circle avatar-icon"></i>
+                            <span class="status offline"></span>
+                        </div>
+                    </div>
+                    <div class="client-details">
+                        <h4>Cliente 3</h4>
+                        <p>Obrigado pela resposta!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Archived Chats -->
+            <div class="archived-chats">
+                <h4><i class="fas fa-archive"></i> Conversas Arquivadas</h4>
+            </div>
+
+            <!-- Navigation Links (Navegação) -->
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-store"></i> Marketplace
+                </a>
+                <a href="nober-dashboard.html" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <header class="chat-header">
+                <div class="nober-info">
+                    <div class="avatar-image-container">
+                        <img id="chat-avatar" src="assets/images/nober-avatar.jpg" alt="Avatar Nober" class="avatar-image" onerror="this.src='https://via.placeholder.com/50?text=Avatar';">
+                        <i class="fas fa-user-circle avatar-icon" style="display:none;"></i>
+                        <span id="chat-status" class="status"></span>
+                    </div>
+                    <div class="nober-details">
+                        <h2 id="chat-name">Nome do Cliente</h2>
+                        <p>Tempo de resposta: <strong>15 min</strong></p>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="audio-call"><i class="fas fa-phone"></i></button>
+                    <button class="video-call"><i class="fas fa-video"></i></button>
+                </div>
+            </header>
+
+            <main class="chat-main" id="chat-main">
+                <div class="messages-container" id="messages-container">
+                    <div class="message sent">
+                        <p>Olá, como posso te ajudar?</p>
+                        <span class="time">12:05</span>
+                    </div>
+
+                    <div class="message received">
+                        <p>Gostaria de mais informações sobre o serviço!</p>
+                        <span class="time">12:06</span>
+                    </div>
+
+                    <div class="message received paid-content" id="paid-message">
+                        <p><i class="fas fa-lock"></i> Prévia do áudio: "Dicas de finanças..."</p>
+                        <span class="time">12:10</span>
+                        <button class="pay-btn" onclick="openPaymentModal()">Pagar para ver</button>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="chat-footer">
+                <form id="chat-form">
+                    <button type="button" class="attach-btn"><i class="fas fa-paperclip"></i></button>
+                    <input type="text" id="message-input" placeholder="Digite uma mensagem..." required>
+                    <button type="button" class="audio-record-btn"><i class="fas fa-microphone"></i></button>
+                    <!-- <button type="submit" class="send-btn"><i class="fas fa-paper-plane"></i></button> -->
+                </form>
+            </footer>            
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closePaymentModal()">&times;</span>
+        <h2>Pagar para ver conteúdo completo</h2>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="card-number">Número do Cartão</label>
+                <input type="text" id="card-number" required placeholder="XXXX XXXX XXXX XXXX">
+            </div>
+
+            <div class="form-group">
+                <label for="expiry-date">Data de Expiração</label>
+                <input type="text" id="expiry-date" required placeholder="MM/AA">
+            </div>
+
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" required placeholder="XXX">
+            </div>
+
+            <button type="submit" class="modal-submit-btn">Pagar</button>
+        </form>
+    </div>
+</div>
+
+
+    <script>
+        function openChat(clientName, statusClass, avatarSrc) {
+            document.querySelector('#chat-name').textContent = clientName;
+            document.querySelector('#chat-avatar').src = avatarSrc;
+            document.querySelector('#chat-avatar').onerror = function() {
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'block';
+            };
+
+            document.querySelector('#chat-status').className = 'status ' + statusClass;
+        }
+
+        // Payment modal functionality
+        function openPaymentModal() {
+            document.getElementById('paymentModal').style.display = 'block';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            closePaymentModal();
+            // Exibe o conteúdo pago após o pagamento
+            const paidMessage = document.getElementById('paid-message');
+            paidMessage.innerHTML = `
+                <p>Áudio completo: "Dicas de finanças detalhadas..."</p>
+                <span class="time">12:10</span>
+                <i class="fas fa-check-circle"></i> Pago
+            `;
+        });
+    </script>
+</body>
+</html>

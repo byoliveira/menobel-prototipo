@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="nobers.html">Nobers</a></li>
-                <li><a href="experiences.html">Experiências</a></li>
+                <li><a href="referencias.html">Referências</a></li>
             </ul>
         </nav>
         <div class="user-profile">
@@ -70,7 +70,21 @@
         <p>&copy; 2024 Menobel Marketplace</p>
     </footer>
 
-    <!-- JavaScript para busca dinâmica -->
+    <!-- Modal HTML -->
+<div id="chatModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Entre para interagir com os Nobers</h2>
+        <p>Para conversar com especialistas e personalidades, por favor, faça login ou cadastre-se.</p>
+        <div class="modal-buttons">
+            <button class="login-button">Login</button>
+            <button class="signup-button">Cadastre-se</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- JavaScript para busca dinâmica e modal -->
     <script>
         // Dados simulados (mock) das referências
         const referencias = [
@@ -159,6 +173,34 @@
 
         // Exibe todos os resultados ao carregar a página
         renderResults(referencias);
+
+        // Pega a modal
+        var modal = document.getElementById("chatModal");
+
+        // Pega os botões de chat
+        var chatButtons = document.querySelectorAll('.chat-button');
+
+        // Pega o <span> que fecha a modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Adiciona evento para abrir a modal ao clicar no botão de chat
+        chatButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                modal.style.display = "block";
+            });
+        });
+
+        // Quando o usuário clicar no <span> (x), fechar a modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Quando o usuário clicar fora da modal, fechar a modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 
 </body>

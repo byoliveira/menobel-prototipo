@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seja um Nober - Menobel</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/nobers.css"> <!-- CSS específico para Nobers -->
+    <title>Dashboard do Nober</title>
+    <link rel="stylesheet" href="css/nober-dashboard.css"> <!-- Estilo da página -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>Menobel</h1>
+            <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="logo-image">
         </div>
         <nav>
             <ul>
@@ -19,123 +19,105 @@
                 <li><a href="experiences.html">Experiências</a></li>
             </ul>
         </nav>
-        <div class="user-profile">
-            <!-- Ícone de login e menu hamburguer se o usuário não estiver logado -->
-            <div class="login-menu">
-                <img src="assets/icons/login-icon.png" alt="Login" class="login-icon">
-                <hr class="divider"> <!-- Linha divisória preta abaixo do ícone de login -->
-                <div class="hamburguer-menu" id="hamburguer-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu">
-                    <ul>
-                        <li><a href="#">Cadastro</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Seja um Nober</a></li>
-                        <li><a href="#">Central de Ajuda</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </header>
 
-    <!-- Seção principal sobre o que é ser um Nober -->
-    <section class="nobers-hero">
-        <h2><span class="highlight-orange">O Que é Ser um Nober?</span></h2>
-        <p>Como <span class="highlight-black">Nober</span>, você poderá oferecer <span class="highlight-orange">suas experiências</span> e ganhar dinheiro ajudando outras pessoas a vivenciar experiências incríveis. Seja em viagens, consultas ou bate-papos personalizados, o <span class="highlight-orange">Menobel Marketplace</span> é o lugar ideal para você conectar-se com clientes e <span class="highlight-black">monetizar suas habilidades</span>.</p>
-        <div class="nober-image">
-            <img src="assets/images/nobers-hero.jpg" alt="Imagem de Nober" />
-        </div>
-    </section>
+    <div class="layout">
+        <aside class="sidebar">
+            <h3>Gestão do Nober</h3>
+            <ul>
+                <li><a href="#references">Referências</a></li>
+                <li><a href="#chats">Chats</a></li>
+                <li><a href="#profits">Lucros</a></li>
+                <li><a href="#accepted-proposals">Propostas Aceitas</a></li>
+                <li><a href="#complaints">Reclamações</a></li>
+            </ul>
+        </aside>
 
-    <!-- Seção sobre como ganhar dinheiro -->
-    <section class="how-it-works">
-        <h3><span class="highlight-orange">Ganhe Dinheiro</span> Compartilhando Suas Experiências</h3>
-        <p>No <span class="highlight-black">Menobel Marketplace</span>, você tem a oportunidade de transformar suas vivências em <span class="highlight-orange">renda</span>. Seja compartilhando dicas exclusivas ou oferecendo serviços personalizados via chat, você decide o valor e o tempo de cada sessão.</p>
-        <div class="steps">
-            <div class="step">
-                <img src="assets/icons/step1.png" alt="Passo 1 - Crie suas experiências">
-                <h4>Crie suas Experiências</h4>
-                <p>Descreva suas ofertas e escolha os preços.</p>
-            </div>
-            <div class="step">
-                <img src="assets/icons/step2.png" alt="Passo 2 - Conecte-se com Clientes">
-                <h4>Conecte-se com Clientes</h4>
-                <p>Utilize o chat ou chamadas de vídeo para interagir diretamente com seus clientes.</p>
-            </div>
-            <div class="step">
-                <img src="assets/icons/step3.png" alt="Passo 3 - Receba Avaliações">
-                <h4>Receba Avaliações</h4>
-                <p>Clientes podem avaliar sua experiência e, quanto melhor sua avaliação, maior o destaque na plataforma.</p>
-            </div>
-        </div>
-    </section>
+        <main class="dashboard">
+            <h1>Dashboard do Nober</h1>
 
-    <!-- Seção sobre avaliações e destaque na plataforma -->
-    <section class="reviews-highlight">
-        <h3><span class="highlight-black">Avaliações</span> que te Colocam no Topo</h3>
-        <p>Quanto melhor as suas avaliações, maior será sua <span class="highlight-orange">visibilidade</span> no marketplace. Clientes satisfeitos deixam feedbacks que ajudam você a crescer e se destacar como um Nober de excelência!</p>
-        <div class="review-example">
-            <blockquote>"Uma das melhores experiências que já tive! Recomendo a todos."</blockquote>
-            <p>- Cliente satisfeito</p>
-        </div>
-    </section>
+            <section id="references" class="card-section">
+                <h2>Referências</h2>
+                <div class="card">
+                    <h3>Total de Referências</h3>
+                    <p>10</p>
+                </div>
+                <div class="card">
+                    <h3>Referências Pendentes</h3>
+                    <p>2</p>
+                </div>
+                <div class="card">
+                    <h3>Referências Concluídas</h3>
+                    <p>8</p>
+                </div>
+            </section>
 
-    <!-- Seção do Dashboard -->
-    <section class="dashboard">
-        <h3><span class="highlight-orange">Seu Dashboard</span> Personalizado</h3>
-        <p>Acompanhe o desempenho das suas experiências com métricas detalhadas e ferramentas de análise.</p>
-        <div class="metrics">
-            <div class="metric-card">
-                <h4>Visitas</h4>
-                <p>1.234</p>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%;"></div>
+            <section id="chats" class="card-section">
+                <h2>Chats</h2>
+                <div class="card">
+                    <h3>Mensagens Recebidas</h3>
+                    <p>15</p>
                 </div>
-            </div>
-            <div class="metric-card">
-                <h4>Conversões</h4>
-                <p>567</p>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 60%;"></div>
+                <div class="card">
+                    <h3>Mensagens Não Respondidas</h3>
+                    <p>3</p>
                 </div>
-            </div>
-            <div class="metric-card">
-                <h4>Total de Ganhos</h4>
-                <p>R$ 12.345</p>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 80%;"></div>
+            </section>
+
+            <section id="profits" class="card-section">
+                <h2>Lucros</h2>
+                <div class="card">
+                    <h3>Total de Lucros</h3>
+                    <p>R$ 1,500</p>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="card">
+                    <h3>Lucros do Mês</h3>
+                    <p>R$ 500</p>
+                </div>
+            </section>
+
+            <section id="accepted-proposals" class="card-section">
+                <h2>Propostas Aceitas</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10/10/2024</td>
+                            <td>Visita Guiada à Avenida Paulista</td>
+                            <td>R$ 100</td>
+                        </tr>
+                        <tr>
+                            <td>15/10/2024</td>
+                            <td>Noite na Balada em SP</td>
+                            <td>R$ 180</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="complaints" class="card-section">
+                <h2>Reclamações</h2>
+                <div class="complaint-list">
+                    <div class="complaint-item">
+                        <p><strong>Cliente:</strong> João Silva</p>
+                        <p><strong>Data:</strong> 01/10/2024</p>
+                        <p><strong>Descrição:</strong> A experiência não atendeu às expectativas.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <footer>
-        <div class="footer-divider"></div> <!-- Linha divisória interna -->
+        <div class="footer-divider"></div>
+        <img src="assets/images/logo-orange-menobel-1200x600.png" alt="Menobel Logo" class="footer-logo">
         <p>&copy; 2024 Menobel Marketplace</p>
     </footer>
-
-    <!-- JavaScript para funcionar o menu hamburguer -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburguerMenu = document.getElementById('hamburguer-menu');
-            const dropdownMenu = document.getElementById('dropdown-menu');
-
-            // Alterna a visibilidade do menu quando o hamburguer é clicado
-            hamburguerMenu.addEventListener('click', function (event) {
-                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-                event.stopPropagation(); // Evita que o clique no hamburguer feche o menu
-            });
-
-            // Fecha o dropdown ao clicar em qualquer lugar fora do menu
-            document.addEventListener('click', function (event) {
-                if (dropdownMenu.style.display === 'block' && !dropdownMenu.contains(event.target) && !hamburguerMenu.contains(event.target)) {
-                    dropdownMenu.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>

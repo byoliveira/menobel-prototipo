@@ -1,0 +1,495 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FAFAFA;
+    height: 100vh;
+    display: flex;
+}
+
+/* Layout Container */
+.layout {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar-container {
+    width: 300px;
+    background-color: #FF6F61;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* Logo Section */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 2px solid #FF8A75;
+}
+
+.menobel-logo {
+    width: 150px;
+    height: auto;
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link i {
+    font-size: 1.5rem;
+}
+
+.nav-link:hover {
+    color: #FFF6F2;
+}
+
+/* Search Bar */
+.search-bar {
+    padding: 0.5rem 1rem;
+    background-color: #FF8A75;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+/* Client List */
+.client-list {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.client-item {
+    display: flex;
+    align-items: center;
+    background-color: #FF8A75;
+    padding: 0.75rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.client-item:hover {
+    background-color: #FFA590;
+}
+
+.avatar-status {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.client-item .avatar-image-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.client-item .avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 40px;
+    transform: translate(-50%, -50%);
+    color: #FFF6F2;
+}
+
+/* Status Indicators */
+.status {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #FF8A75;
+}
+
+.status.online {
+    background-color: #00FF00;
+    bottom: 2px;
+    right: 2px;
+}
+
+.status.away {
+    background-color: #FFA500;
+    bottom: 2px;
+    right: 2px;
+}
+
+.status.offline {
+    background-color: #FF0000;
+    bottom: 2px;
+    right: 2px;
+}
+
+.client-details {
+    margin-left: 1rem;
+}
+
+.client-details h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: white;
+}
+
+.client-details p {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.9rem;
+    color: #FFF6F2;
+}
+
+/* Archived Chats */
+.archived-chats {
+    padding: 1rem;
+    background-color: #FF6F61;
+    border-top: 2px solid #FF8A75;
+}
+
+.archived-chats:hover {
+    background-color: #FF8A75;
+}
+
+.archived-chats h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.archived-chats i {
+    font-size: 1.2rem;
+}
+
+/* Chat Section */
+.chat-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF6F2;
+}
+
+.chat-header {
+    background-color: #FF6F61;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.chat-header .nober-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.chat-header .avatar-image-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.chat-header .avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat-header .avatar-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 40px;
+    transform: translate(-50%, -50%);
+    color: #FFF6F2;
+}
+
+/* Status Indicators no Header */
+.chat-header .status {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #FF8A75;
+    bottom: 2px;
+    right: 2px;
+}
+
+.chat-header .status.online {
+    background-color: #00FF00; /* Green - Online */
+}
+
+.chat-header .status.away {
+    background-color: #FFA500; /* Orange - Away */
+}
+
+.chat-header .status.offline {
+    background-color: #FF0000; /* Red - Offline */
+}
+
+.chat-header .nober-details h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: white;
+}
+
+.chat-header .nober-details p {
+    font-size: 0.9rem;
+    color: #FFF6F2;
+}
+
+.chat-actions button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.chat-actions button:hover {
+    color: #FFF6F2;
+}
+
+/* Chat Main */
+.chat-main {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    max-width: 60%;
+}
+
+.sent {
+    align-self: flex-end;
+    background-color: #FF6F61;
+    color: white;
+}
+
+.received {
+    align-self: flex-start;
+    background-color: #F5F5F5;
+    color: #333;
+}
+
+/* Chat Footer */
+.chat-footer {
+    background-color: #FFF;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #EEE;
+}
+
+#chat-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Botões no footer */
+.attach-btn,
+.audio-record-btn,
+.send-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #FF6F61;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.attach-btn:hover,
+.audio-record-btn:hover,
+.send-btn:hover {
+    background-color: #FF8A75;
+}
+
+/* Estilo do input de mensagem */
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+/* Foco no input */
+#message-input:focus {
+    border-color: #FF6F61;
+}
+
+/* Paga e Prévia */
+.paid-content {
+    background-color: #FFEA80;
+    border-left: 4px solid #FF6F61;
+    position: relative;
+    padding: 0.75rem;
+}
+
+.paid-content button {
+    background-color: #FF6F61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.paid-content button:hover {
+    background-color: #FF8A75;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.close {
+    color: #FF6F61;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #FF8A75;
+    cursor: pointer;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+/* Foco no input */
+input:focus {
+    border-color: #FF6F61;
+}
+
+/* Submit Button */
+.modal-submit-btn {
+    background-color: #FF6F61;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.modal-submit-btn:hover {
+    background-color: #FF8A75;
+}

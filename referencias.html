@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiências - Menobel</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Usando o mesmo CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <style>
+        /* Estilos adicionais para o filtro */
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 2rem; /* Adiciona padding lateral para o filtro */
+        }
+
+        .filter-container select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #CCC;
+            outline: none;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .remove-filter-button {
+            background-color: #FF6F61;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        .remove-filter-button:hover {
+            background-color: #FF8A75;
+        }
+
+        /* Estilos para o layout dos cards */
+        .experiences-grid {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os cards se movam para a próxima linha */
+            justify-content: space-between; /* Alinhamento à esquerda para os cards */
+            padding: 0 2rem; /* Adiciona padding lateral para os cards */
+        }
+
+        .experience-card {
+            flex: 0 1 calc(30% - 20px); /* Largura de 30% com margem */
+            margin-bottom: 20px; /* Espaçamento inferior */
+            background-color: #FFF;
+            border: 1px solid #EEE;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .experience-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para as tags */
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .especialista {
+            background-color: #FF6F61;
+        }
+
+        .personalidade {
+            background-color: #FF8A75;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="logo-image">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="nobers.html">Nobers</a></li>
+                <li><a href="experiences.html">Experiências</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="experience-list">
+            <h2>Experiências Disponíveis</h2>
+            <div class="filter-container">
+                <select id="typeFilter">
+                    <option value="">Todos</option>
+                    <option value="Especialista">Especialista</option>
+                    <option value="Personalidade">Personalidade</option>
+                </select>
+                <button id="removeFilterButton" class="remove-filter-button" style="display: none;">Remover Filtro</button>
+            </div>
+            <div class="experiences-grid" id="results">
+                <!-- Cards das experiências serão renderizados aqui -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-divider"></div>
+        <img src="assets/images/logo-orange-menobel-1200x600.png" alt="Menobel Logo" class="footer-logo">
+        <p>&copy; 2024 Menobel Marketplace</p>
+    </footer>
+
+    <script>
+        // Dados simulados (mock) das referências
+        const referencias = [
+            {
+                titulo: "Visita ao Cristo Redentor",
+                nober: "João Souza",
+                tipo: "Especialista",
+                certificacao: "Guia Turístico Licenciado",
+                avaliacao: 4.9,
+                preco: 120,
+                imagem: "assets/images/cristro-redentor.webp",
+                link: "detalhes-cristo-redentor.html"
+            },
+            {
+                titulo: "Culinária no Terraço Itália",
+                nober: "Maria Silva",
+                tipo: "Personalidade",
+                certificacao: null,
+                avaliacao: 4.8,
+                preco: 250,
+                imagem: "assets/images/terraco-italia.webp",
+                link: "detalhes-terraco-italia.html"
+            },
+            {
+                titulo: "Noite na Balada em São Paulo",
+                nober: "Carlos Mello",
+                tipo: "Especialista",
+                certificacao: "Guia de Entretenimento",
+                avaliacao: 4.7,
+                preco: 180,
+                imagem: "assets/images/balada-sp.webp",
+                link: "detalhes-balada-sp.html"
+            },
+            {
+                titulo: "Conhecer a Avenida Paulista",
+                nober: "Ana Reis",
+                tipo: "Personalidade",
+                certificacao: null,
+                avaliacao: 5.0,
+                preco: 100,
+                imagem: "assets/images/av-paulista.webp",
+                link: "detalhes-av-paulista.html"
+            }
+        ];
+
+        // Função para renderizar os resultados
+        function renderResults(items) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ""; // Limpa os resultados anteriores
+
+            items.forEach(item => {
+                const card = `
+                    <div class="experience-card">
+                        <a href="${item.link}">
+                            <img src="${item.imagem}" alt="${item.titulo}">
+                        </a>
+                        <div class="experience-info">
+                            <h3><a href="${item.link}">${item.titulo}</a></h3>
+                            <span class="tag ${item.tipo.toLowerCase()}">${item.tipo}</span>
+                            <p><strong>Nober:</strong> ${item.nober}</p>
+                            ${item.certificacao ? `<p>Certificação: ${item.certificacao}</p>` : ""}
+                            <p>Avaliação: ⭐⭐⭐⭐⭐ (${item.avaliacao})</p>
+                            <p>Preço: R$ ${item.preco.toFixed(2)}</p>
+                            <button class="chat-button"><i class="fas fa-comments"></i> Chamar no Chat</button>
+                        </div>
+                    </div>
+                `;
+                resultsContainer.innerHTML += card;
+            });
+        }
+
+        // Função para buscar referências
+        function filterReferences(type) {
+            const filteredReferences = referencias.filter(item => 
+                type ? item.tipo === type : true
+            );
+            renderResults(filteredReferences);
+            document.getElementById('removeFilterButton').style.display = type ? 'block' : 'none'; // Exibe o botão de remover filtro
+        }
+
+        // Renderiza todas as referências ao carregar a página
+        renderResults(referencias);
+
+        // Event Listener para o filtro
+        document.getElementById('typeFilter').addEventListener('change', function() {
+            const selectedType = this.value;
+            filterReferences(selectedType);
+        });
+
+        // Event Listener para remover o filtro
+        document.getElementById('removeFilterButton').addEventListener('click', function() {
+            document.getElementById('typeFilter').value = ""; // Reseta o filtro
+            renderResults(referencias); // Renderiza todas as referências
+            this.style.display = 'none'; // Esconde o botão de remover filtro
+        });
+    </script>
+</body>
+</html>

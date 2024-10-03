@@ -38,23 +38,67 @@ nav ul li a:hover {
     color: #FF6F61;
 }
 
-/* Main Section */
+/* Layout Principal */
 .reference-detail {
     max-width: 1200px;
     margin: 3rem auto;
     padding: 2rem;
     background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
     gap: 2rem;
+    justify-content: space-between;
 }
 
-.nober-highlight {
-    text-align: center;
+.left-panel {
+    flex: 3;
 }
 
+.right-panel {
+    flex: 1;
+    background-color: #FF8A75;
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: fit-content; /* Ajuste a altura do painel de preço ao conteúdo */
+}
+
+.right-panel h2 {
+    font-size: 2rem;
+}
+
+.right-panel button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    background-color: white;
+    color: #FF6F61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.right-panel button:hover {
+    background-color: #FF6F61;
+    color: white;
+}
+
+.payment-info {
+    margin-top: 1.5rem;
+}
+
+.payment-info h4 {
+    margin-bottom: 0.5rem;
+}
+
+.payment-info p {
+    margin-bottom: 1rem;
+}
+
+/* Seção de detalhes */
 .nober-highlight h1 {
     font-size: 2.5rem;
     color: #FF6F61;
@@ -63,37 +107,19 @@ nav ul li a:hover {
 
 .nober-info {
     display: flex;
-    justify-content: center;
     gap: 2rem;
-    margin-bottom: 2rem;
     align-items: center;
 }
 
 .nober-photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     background-color: #F5F5F5;
     border: 5px solid #FF6F61;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.avatar-background {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-}
-
-.avatar-icon {
-    font-size: 60px;
-    color: #FF6F61;
 }
 
 .nober-details {
@@ -107,7 +133,6 @@ nav ul li a:hover {
 
 .nober-category {
     font-size: 1.2rem;
-    color: #666666;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -117,14 +142,34 @@ nav ul li a:hover {
     font-size: 1.5rem;
 }
 
-/* Add some life with icons */
-.nober-details p {
-    font-size: 1.1rem;
-    color: #666666;
-    margin-top: 0.5rem;
+/* Seção de experiência */
+.content {
+    margin-top: 2rem;
+    background-color: #FFF6F2;
+    padding: 1.5rem;
+    border-radius: 10px;
 }
 
-/* Improve buttons */
+.content h3 {
+    color: #FF6F61;
+}
+
+.media-content {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.reference-image, .reference-video {
+    width: 50%;
+}
+
+.reference-image img, .reference-video iframe {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Botões */
 .contact-button {
     background-color: #FF6F61;
     color: white;
@@ -135,143 +180,9 @@ nav ul li a:hover {
     margin-top: 1rem;
     font-size: 1.1rem;
     transition: background-color 0.3s ease;
-    display: inline-block;
 }
 
 .contact-button:hover {
-    background-color: #FF8A75;
-}
-
-/* Informações de Tempo e Experiência */
-.content {
-    background-color: #FFF6F2;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.timing-info {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #FF6F61;
-}
-
-.timing-info p {
-    font-size: 1.2rem;
-    color: #333333;
-}
-
-.experience-section {
-    margin-top: 2rem;
-}
-
-.experience-section h3 {
-    font-size: 1.8rem;
-    color: #FF6F61;
-    margin-bottom: 1rem;
-}
-
-.experience-section p {
-    font-size: 1.1rem;
-    color: #666666;
-    margin-bottom: 1.5rem;
-}
-
-/* Media Section */
-.media-content {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-    justify-content: space-between;
-}
-
-.reference-image {
-    flex: 1;
-    text-align: center;
-}
-
-.reference-image img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.reference-video {
-    flex-basis: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.reference-video iframe {
-    width: 100%;
-    max-width: 560px;
-    height: 315px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Right Panel */
-.right-panel {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    width: 300px;
-    background-color: #FF8A75;
-    padding: 2rem;
-    border-radius: 10px;
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.price-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.price-section p {
-    margin-bottom: 1rem;
-}
-
-.send-message {
-    background-color: #FFFFFF;
-    color: #FF6F61;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-bottom: 2rem;
-    transition: background-color 0.3s ease;
-}
-
-.send-message:hover {
-    background-color: #FF6F61;
-    color: white;
-}
-
-.payment-info h4 {
-    margin-bottom: 0.5rem;
-}
-
-.payment-info p {
-    margin-bottom: 1rem;
-}
-
-.create-reference {
-    background-color: #FF6F61;
-    color: white;
-    padding: 1rem;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-}
-
-.create-reference:hover {
     background-color: #FF8A75;
 }
 
@@ -280,6 +191,9 @@ footer {
     background-color: #FFFFFF;
     text-align: center;
     padding: 2rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-divider {
@@ -288,25 +202,30 @@ footer {
 }
 
 .footer-logo {
-    height: 40px;
+    height: 50px;
+    margin-bottom: 1rem;
+    width: auto;
 }
 
 footer p {
     color: #666666;
 }
 
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 768px) {
+    .reference-detail {
+        flex-direction: column;
+    }
+
+    .right-panel {
+        margin-top: 2rem;
+    }
+
     .media-content {
         flex-direction: column;
     }
 
     .reference-image, .reference-video {
-        width: 100%;
-        max-width: none;
-    }
-
-    .right-panel {
         width: 100%;
     }
 }
