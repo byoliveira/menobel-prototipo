@@ -1,4 +1,3 @@
-/* Global Styles */
 body {
     margin: 0;
     padding: 0;
@@ -8,13 +7,11 @@ body {
     display: flex;
 }
 
-/* Layout Container */
 .layout {
     display: flex;
     width: 100%;
 }
 
-/* Sidebar Styles */
 .sidebar-container {
     width: 300px;
     background-color: #FF6F61;
@@ -26,7 +23,6 @@ body {
     overflow-y: auto;
 }
 
-/* Logo Section */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -42,7 +38,6 @@ body {
     opacity: 0.8;
 }
 
-/* Navigation Links */
 .nav-links {
     display: flex;
     flex-direction: column;
@@ -68,7 +63,6 @@ body {
     color: #FFF6F2;
 }
 
-/* Search Bar */
 .search-bar {
     padding: 0.5rem 1rem;
     background-color: #FF8A75;
@@ -272,15 +266,15 @@ body {
 }
 
 .chat-header .status.online {
-    background-color: #00FF00; /* Green - Online */
+    background-color: #00FF00;
 }
 
 .chat-header .status.away {
-    background-color: #FFA500; /* Orange - Away */
+    background-color: #FFA500;
 }
 
 .chat-header .status.offline {
-    background-color: #FF0000; /* Red - Offline */
+    background-color: #FF0000;
 }
 
 .chat-header .nober-details h2 {

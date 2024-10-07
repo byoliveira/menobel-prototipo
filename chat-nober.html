@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menobel Chat - Nober</title>
+    <link rel="stylesheet" href="css/chat-nober.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <div class="sidebar-container">
+            <div class="logo-container">
+                <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="menobel-logo">
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar conversas...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="client-list">
+                <h3>Clientes em Conversa</h3>
+
+                <div class="client-item" onclick="openChat('Cliente 1', 'online', 'assets/images/cliente1.jpg')">
+                    <div class="avatar-status">
+                        <div class="avatar-image-container">
+                            <img src="assets/images/cliente1.jpg" alt="Avatar Cliente" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fas fa-user-circle avatar-icon"></i>
+                            <span class="status online"></span>
+                        </div>
+                    </div>
+                    <div class="client-details">
+                        <h4>Cliente 1</h4>
+                        <p>Olá, Nober! Preciso de uma consulta...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="archived-chats">
+                <h4><i class="fas fa-archive"></i> Conversas Arquivadas</h4>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-store"></i> Marketplace
+                </a>
+                <a href="nober-dashboard.html" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <header class="chat-header">
+                <div class="nober-info">
+                    <div class="avatar-image-container">
+                        <img id="chat-avatar" src="assets/images/nober-avatar.jpg" alt="Avatar Nober" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <i class="fas fa-user-circle avatar-icon"></i>
+                        <span id="chat-status" class="status"></span>
+                    </div>
+                    <div class="nober-details">
+                        <h2 id="chat-name">Nome do Cliente</h2>
+                        <p>Tempo de resposta: <strong>15 min</strong></p>
+                    </div>
+                </div>
+            </header>
+
+            <main class="chat-main" id="chat-main">
+                <div class="messages-container" id="messages-container">
+                    <!-- Exemplo de mensagem bloqueada com preço -->
+                    <div class="message sent">
+                        <p>Gostaria de mais informações sobre o serviço!</p>
+                        <span class="time">12:06</span>
+                    </div>
+
+                    <!-- Exemplo de conteúdo bloqueado para pagamento -->
+                    <div class="message sent">
+                        <p>Este conteúdo está bloqueado por R$50,00.</p>
+                        <div class="premium-message">
+                            <i class="fas fa-lock"></i> Conteúdo bloqueado por R$50,00. Efetue o pagamento para visualizar.
+                        </div>
+                        <span class="time">12:08</span>
+                    </div>
+
+                    <!-- Exemplo de conteúdo liberado após pagamento -->
+                    <div class="message received premium-unlocked">
+                        <p>Muito obrigado pelo pagamento! Agora posso prosseguir com as orientações detalhadas.</p>
+                        <span class="time">12:10</span>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="chat-footer">
+                <form id="chat-form">
+                    <textarea id="message-input" placeholder="Escreva sua resposta..." required></textarea>
+                    <input type="number" id="price-input" placeholder="Preço (opcional)" min="0">
+                    <button type="button" class="send-btn" onclick="sendMessage()">Enviar <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </footer>            
+        </div>
+    </div>
+
+    <script>
+        function openChat(clientName, statusClass, avatarSrc) {
+            document.querySelector('#chat-name').textContent = clientName;
+            document.querySelector('#chat-avatar').src = avatarSrc;
+            document.querySelector('#chat-avatar').onerror = function() {
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'block';
+            };
+
+            document.querySelector('#chat-status').className = 'status ' + statusClass;
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const priceInput = document.getElementById('price-input').value;
+            const messagesContainer = document.getElementById('messages-container');
+
+            let messageHTML = `
+                <div class="message sent">
+                    <p>${messageInput.value}</p>
+                    <span class="time">Agora</span>
+            `;
+
+            if (priceInput > 0) {
+                messageHTML += `
+                    <div class="premium-message">
+                        <i class="fas fa-lock"></i> Conteúdo bloqueado por R$${priceInput},00. Efetue o pagamento para desbloquear.
+                    </div>
+                `;
+            }
+
+            messageHTML += '</div>';
+            messagesContainer.innerHTML += messageHTML;
+            messageInput.value = '';
+            priceInput.value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Menobel Marketplace</title>
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="logo-image">
+                <h2>Admin Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" data-section="historico">Histórico de Atividades</a></li>
+                    <li><a href="#" data-section="sinalizacao">Sinalização de Interações</a></li>
+                    <li><a href="#" data-section="categorias">Gerenciar Categorias</a></li>
+                    <li><a href="#" data-section="avaliacoes">Avaliações & Comentários</a></li>
+                    <li><a href="#" data-section="denuncias">Denúncias</a></li>
+                    <li><a href="#" data-section="disputas">Disputas</a></li>
+                    <li><a href="#" data-section="tickets">Sistema de Tickets</a></li>
+                    <li><a href="#" data-section="transacoes">Transações</a></li>
+                    <li><a href="#" data-section="comissoes">Comissões</a></li>
+                    <li><a href="#" data-section="reembolsos">Reembolsos</a></li>
+                    <li><a href="#" data-section="faturas">Faturas</a></li>
+                    <li><a href="#" data-section="impostos">Impostos</a></li>
+                    <li><a href="#" data-section="monitoramento">Monitoramento</a></li>
+                    <li><a href="#" data-section="relatorios">Relatórios</a></li>
+                    <li><a href="#" data-section="seguranca">Segurança</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section id="content-section">
+                <h1>Bem-vindo ao Admin Dashboard</h1>
+                <p>Selecione uma funcionalidade no menu à esquerda para começar.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script para alternar entre seções -->
+    <script>
+        const links = document.querySelectorAll('.sidebar-nav a');
+        const contentSection = document.getElementById('content-section');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const section = event.target.getAttribute('data-section');
+                loadSection(section);
+            });
+        });
+
+        function loadSection(section) {
+            let sectionContent = '';
+            switch (section) {
+                case 'historico':
+                    sectionContent = `<h2>Histórico de Atividades</h2><p>Mostre todas as interações e atividades realizadas pelos usuários e Nobers.</p>`;
+                    break;
+                case 'sinalizacao':
+                    sectionContent = `<h2>Sinalização de Interações</h2><p>Ferramenta para revisão de interações inapropriadas.</p>`;
+                    break;
+                case 'categorias':
+                    sectionContent = `<h2>Gerenciar Categorias</h2><p>Adicione, remova ou edite categorias e subcategorias de serviços dos Nobers.</p>`;
+                    break;
+                case 'avaliacoes':
+                    sectionContent = `<h2>Avaliações & Comentários</h2><p>Gerencie avaliações deixadas por usuários e Nobers.</p>`;
+                    break;
+                case 'denuncias':
+                    sectionContent = `<h2>Denúncias</h2><p>Monitorar e agir sobre denúncias feitas por usuários ou Nobers.</p>`;
+                    break;
+                case 'disputas':
+                    sectionContent = `<h2>Disputas</h2><p>Investigue e resolva disputas entre usuários e Nobers.</p>`;
+                    break;
+                case 'tickets':
+                    sectionContent = `<h2>Sistema de Tickets</h2><p>Gerenciar e rastrear solicitações de suporte técnico e administrativo.</p>`;
+                    break;
+                case 'transacoes':
+                    sectionContent = `<h2>Transações</h2><p>Acompanhe todas as transações realizadas na plataforma.</p>`;
+                    break;
+                case 'comissoes':
+                    sectionContent = `<h2>Comissões</h2><p>Gerencie as comissões cobradas pela Menobel.</p>`;
+                    break;
+                case 'reembolsos':
+                    sectionContent = `<h2>Reembolsos</h2><p>Processar reembolsos e disputas financeiras.</p>`;
+                    break;
+                case 'faturas':
+                    sectionContent = `<h2>Faturas</h2><p>Gerar faturas automáticas para usuários e Nobers.</p>`;
+                    break;
+                case 'impostos':
+                    sectionContent = `<h2>Impostos</h2><p>Controle de impostos locais e internacionais.</p>`;
+                    break;
+                case 'monitoramento':
+                    sectionContent = `<h2>Monitoramento</h2><p>Ferramentas de monitoramento em tempo real.</p>`;
+                    break;
+                case 'relatorios':
+                    sectionContent = `<h2>Relatórios</h2><p>Gerar relatórios detalhados de uso da plataforma.</p>`;
+                    break;
+                case 'seguranca':
+                    sectionContent = `<h2>Segurança</h2><p>Implemente criptografia ponta-a-ponta e gerencie segurança de dados.</p>`;
+                    break;
+                default:
+                    sectionContent = `<h2>Bem-vindo ao Admin Dashboard</h2><p>Selecione uma funcionalidade no menu à esquerda para começar.</p>`;
+            }
+
+            contentSection.innerHTML = sectionContent;
+        }
+    </script>
+</body>
+</html>

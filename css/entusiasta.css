@@ -1,0 +1,148 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #FF6F61;
+}
+
+.reference-container {
+    padding: 20px;
+    background-color: #FF6F61;
+    color: white;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.reference-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.reference-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reference-main {
+    flex: 2;
+    text-align: left;
+}
+
+.nober-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nober-image {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.nober-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.nober-image i {
+    font-size: 150px;
+    color: #FF8A75;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nober-details h2 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.nober-details p {
+    margin-bottom: 10px;
+}
+
+.nober-extras h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.nober-extras p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Preço e Ação */
+.reference-price {
+    background-color: orange;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+}
+
+.reference-price h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.btn-message, .btn-action {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.btn-message {
+    background-color: #FF8A75;
+}
+
+.btn-action {
+    background-color: #FF6F61;
+}
+
+footer {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}

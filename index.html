@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,199 +9,241 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <!-- Adicionando a logo no header -->
-            <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="logo-image">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="nobers.html">Nobers</a></li>
-                <li><a href="referencias.html">Referências</a></li>
-            </ul>
-        </nav>
-        <div class="user-profile">
-            <div class="login-menu">
-                <i class="fas fa-user-circle login-icon"></i>
-                <hr class="divider">
-                <div class="hamburguer-menu" id="hamburguer-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu">
-                    <ul>
-                        <li><a href="#">Cadastro</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Seja um Nober</a></li>
-                        <li><a href="#">Central de Ajuda</a></li>
-                    </ul>
-                </div>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="assets/images/logo-orange-menobel.png" alt="Menobel Logo" class="logo-image">
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Nobers</a></li>
+                    <li><a href="#">Referências</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <ul class="profile-list">
+                    <li><a href="#" id="login-btn">Login</a></li>
+                    <li><a href="#" id="signup-btn">Cadastre-se</a></li>
+                </ul>
             </div>
         </div>
     </header>
 
-    <!-- Hero section with search input -->
+    <!-- Hero Section -->
     <section class="hero">
-        <h2><span class="highlight-orange">Descubra</span> <span class="highlight-black">Referências</span> <span class="highlight-orange">Únicas</span></h2>
-        <p><span class="highlight-black">Explore</span>, <span class="highlight-orange">Reserve</span> <span class="highlight-black">ou</span> <span class="highlight-orange">Converse</span> <span class="highlight-black">com Especialistas!</span></p>
-        
-        <!-- Search bar with input and button -->
-        <div class="search-bar">
-            <input type="text" placeholder="O que você deseja experimentar?" class="search-input" id="searchInput">
-            <button class="search-button" id="searchButton">
-                <i class="fas fa-search"></i> Buscar
-            </button>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Fale, partilhe, ajude. Cada conversa tem um valor.</h1>
+            <p>Menobel é o espaço onde o conhecimento e a experiência de vida se partilham um minuto por vez.</p>
+            <a href="#categories" class="cta-button">Explorar Categorias</a>
         </div>
-    </section>    
+    </section>
 
-    <!-- Experience Highlights Section -->
-    <section class="experiences-highlights">
-        <h3>Destaques de Referências</h3>
-        <div class="experiences-grid" id="results">
-            <!-- Cards serão renderizados dinamicamente aqui -->
+    <!-- Botões de Especialistas, Personalidades e Entusiastas Apaixonados -->
+    <div class="category-buttons">
+        <a href="#" class="category-button especialistas">Especialistas</a>
+        <a href="#" class="category-button personalidades">Personalidades</a>
+        <a href="#" class="category-button entusiastas">Entusiastas Apaixonados</a>
+    </div>
+
+    <!-- Botão para exibir categorias -->
+    <section class="categories-toggle-section">
+        <button class="toggle-button" onclick="toggleCategories()">Ver Categorias</button>
+    </section>
+
+    <!-- Categorias Menu (inicialmente escondido) -->
+    <section id="categories" class="categories-section" style="display: none;">
+        <h3>CATEGORIAS</h3>
+        <div class="categories-grid">
+            <div class="category-box especialistas-box">
+                <h4>Artistas</h4>
+                <ul>
+                    <li>Músicos</li>
+                    <li>Actores/Actrices</li>
+                    <li>Artistas Visuais</li>
+                </ul>
+            </div>
+            <div class="category-box especialistas-box">
+                <h4>Deportistas</h4>
+                <ul>
+                    <li>Atletas Profesionales</li>
+                    <li>Entrenadores y Asesores</li>
+                </ul>
+            </div>
+            <div class="category-box personalidades-box">
+                <h4>Influencers e Criadores de Conteúdo</h4>
+                <ul>
+                    <li>Youtubers</li>
+                    <li>Blogueiros</li>
+                    <li>Tiktokers</li>
+                </ul>
+            </div>
+            <div class="category-box personalidades-box">
+                <h4>Expertos e Profissionais</h4>
+                <ul>
+                    <li>Cientistas</li>
+                    <li>Empresários</li>
+                    <li>Consultores</li>
+                </ul>
+            </div>
+            <div class="category-box entusiastas-box">
+                <h4>Entusiastas Apaixonados</h4>
+                <ul>
+                    <li>Desenvolvedores de Software</li>
+                    <li>Designers Criativos</li>
+                    <li>Amantes de Tecnologia</li>
+                </ul>
+            </div>
         </div>
-    </section>    
+    </section>
 
-    <footer>
-        <div class="footer-divider"></div>
-        <!-- Adicionando a logo no footer -->
-        <img src="assets/images/logo-orange-menobel-1200x600.png" alt="Menobel Logo" class="footer-logo">
-        <p>&copy; 2024 Menobel Marketplace</p>
-    </footer>
+    <!-- Referências em Destaque -->
+    <section class="featured-section">
+        <h4>Referências em Destaque</h4>
+        <div class="card-grid">
+            <!-- Personalidade -->
+            <a href="personalidade.html" class="card-link">
+                <div class="card card-blue">
+                    <p class="nober-name">Andrés Lobato</p>
+                    <p class="nober-info">Personalidade | Sport | Conexão Exclusiva</p>
+                    <button class="chat-button">Iniciar Chat</button>
+                </div>
+            </a>
 
-    <!-- Modal HTML -->
-<div id="chatModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Entre para interagir com os Nobers</h2>
-        <p>Para conversar com especialistas e personalidades, por favor, faça login ou cadastre-se.</p>
-        <div class="modal-buttons">
-            <button class="login-button">Login</button>
-            <button class="signup-button">Cadastre-se</button>
+            <!-- Especialista -->
+            <a href="especialista.html" class="card-link">
+                <div class="card card-purple">
+                    <p class="nober-name">Maria Sanchez</p>
+                    <p class="nober-info">Especialista | Life Style | Assessoria Personalizada</p>
+                    <button class="chat-button">Iniciar Chat</button>
+                </div>
+            </a>
+
+            <!-- Entusiasta Apaixonado -->
+            <a href="entusiasta.html" class="card-link">
+                <div class="card card-orange">
+                    <p class="nober-name">Carlos Silva</p>
+                    <p class="nober-info">Entusiasta Apaixonado | Tecnologia | Contribuições Criativas</p>
+                    <button class="chat-button">Iniciar Chat</button>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required placeholder="Digite sua senha">
+                </div>
+                <button type="submit" class="btn-login">Entrar</button>
+                <p class="forgot-password"><a href="#">Esqueceu sua senha?</a></p>
+            </form>
         </div>
     </div>
-</div>
 
+    <!-- Modal de Cadastro -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close" id="closeSignupModal">&times;</span>
+            <h2>Cadastre-se</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="name">Nome Completo:</label>
+                    <input type="text" id="name" required placeholder="Digite seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" required placeholder="Digite seu CPF" maxlength="14">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="text" id="phone" required placeholder="(XX) XXXX-XXXX" maxlength="15">
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">Data de Nascimento:</label>
+                    <input type="date" id="birthdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required placeholder="Crie uma senha">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirme sua Senha:</label>
+                    <input type="password" id="confirm-password" required placeholder="Confirme sua senha">
+                </div>
+                <button type="submit" class="btn-signup">Cadastrar</button>
+            </form>
+        </div>
+    </div>
 
-    <!-- JavaScript para busca dinâmica e modal -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-divider"></div>
+            <img src="assets/images/logo-orange-menobel-1200x600.png" alt="Menobel Logo" class="footer-logo">
+            <p>&copy; 2024 Menobel Marketplace</p>
+        </div>
+    </footer>
+
+    <!-- Script para controlar a exibição das categorias e modais -->
     <script>
-        // Dados simulados (mock) das referências
-        const referencias = [
-            {
-                titulo: "Visita ao Cristo Redentor",
-                nober: "João Souza",
-                tipo: "Especialista",
-                certificacao: "Guia Turístico Licenciado",
-                avaliacao: 4.9,
-                preco: 120,
-                imagem: "assets/images/cristro-redentor.webp",
-                link: "detalhes-cristo-redentor.html"
-            },
-            {
-                titulo: "Culinária no Terraço Itália",
-                nober: "Maria Silva",
-                tipo: "Personalidade",
-                certificacao: null,
-                avaliacao: 4.8,
-                preco: 250,
-                imagem: "assets/images/terraco-italia.webp",
-                link: "detalhes-terraco-italia.html"
-            },
-            {
-                titulo: "Noite na Balada em São Paulo",
-                nober: "Carlos Mello",
-                tipo: "Especialista",
-                certificacao: "Guia de Entretenimento",
-                avaliacao: 4.7,
-                preco: 180,
-                imagem: "assets/images/balada-sp.webp",
-                link: "detalhes-balada-sp.html"
-            },
-            {
-                titulo: "Conhecer a Avenida Paulista",
-                nober: "Ana Reis",
-                tipo: "Personalidade",
-                certificacao: null,
-                avaliacao: 5.0,
-                preco: 100,
-                imagem: "assets/images/av-paulista.webp",
-                link: "detalhes-av-paulista.html"
-            }
-        ];
-
-        // Função para renderizar os resultados
-        function renderResults(items) {
-            const resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = ""; // Limpa os resultados anteriores
-
-            items.forEach(item => {
-                const card = `
-                    <div class="experience-card">
-                        <a href="${item.link}">
-                            <img src="${item.imagem}" alt="${item.titulo}">
-                        </a>
-                        <div class="experience-info">
-                            <h4><a href="${item.link}">${item.titulo}</a></h4>
-                            <span class="tag ${item.tipo.toLowerCase()}">${item.tipo}</span>
-                            <p><strong>Nober:</strong> ${item.nober}</p>
-                            ${item.certificacao ? `<p>Certificação: ${item.certificacao}</p>` : ""}
-                            <p>Avaliação: ⭐⭐⭐⭐⭐ (${item.avaliacao})</p>
-                            <p>Preço: R$ ${item.preco.toFixed(2)}</p>
-                            <button class="chat-button"><i class="fas fa-comments"></i> Chamar no Chat</button>
-                        </div>
-                    </div>
-                `;
-                resultsContainer.innerHTML += card;
-            });
-        }
-
-        // Função para buscar referências
-        function searchReferences(query) {
-            const filteredReferences = referencias.filter(item =>
-                item.titulo.toLowerCase().includes(query.toLowerCase()) ||
-                item.nober.toLowerCase().includes(query.toLowerCase())
-            );
-            renderResults(filteredReferences);
-        }
-
-        // Event Listener para o botão de busca
-        document.getElementById('searchButton').addEventListener('click', function() {
-            const query = document.getElementById('searchInput').value;
-            searchReferences(query);
-        });
-
-        // Exibe todos os resultados ao carregar a página
-        renderResults(referencias);
-
-        // Pega a modal
-        var modal = document.getElementById("chatModal");
-
-        // Pega os botões de chat
-        var chatButtons = document.querySelectorAll('.chat-button');
-
-        // Pega o <span> que fecha a modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // Adiciona evento para abrir a modal ao clicar no botão de chat
-        chatButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                modal.style.display = "block";
-            });
-        });
-
-        // Quando o usuário clicar no <span> (x), fechar a modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // Quando o usuário clicar fora da modal, fechar a modal
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+        function toggleCategories() {
+            var categoriesSection = document.getElementById("categories");
+            if (categoriesSection.style.display === "none") {
+                categoriesSection.style.display = "block";
+            } else {
+                categoriesSection.style.display = "none";
             }
         }
+
+        const loginBtn = document.getElementById('login-btn');
+        const signupBtn = document.getElementById('signup-btn');
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const closeModal = document.getElementById('closeModal');
+        const closeSignupModal = document.getElementById('closeSignupModal');
+
+        // Abrir modal de login
+        loginBtn.addEventListener('click', function() {
+            loginModal.style.display = 'flex';
+        });
+
+        // Abrir modal de cadastro
+        signupBtn.addEventListener('click', function() {
+            signupModal.style.display = 'flex';
+        });
+
+        // Fechar modal de login
+        closeModal.addEventListener('click', function() {
+            loginModal.style.display = 'none';
+        });
+
+        // Fechar modal de cadastro
+        closeSignupModal.addEventListener('click', function() {
+            signupModal.style.display = 'none';
+        });
+
+        // Fechar modais ao clicar fora
+        window.addEventListener('click', function(event) {
+            if (event.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (event.target === signupModal) {
+                signupModal.style.display = 'none';
+            }
+        });
     </script>
-
 </body>
 </html>
