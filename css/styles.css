@@ -3,9 +3,23 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FAFAFA;
+    background-color: #FFF4E6; /* Fundo laranja claro */
     color: #333;
     box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo Global de Links */
+a {
+    color: inherit; /* Mantém a cor atual do texto */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #FF6F61; /* Cor diferenciada ao passar o mouse */
 }
 
 /* Containers */
@@ -20,12 +34,14 @@ body {
 
 /* Header */
 header {
-    background-color: #fff;
-    border-bottom: 2px solid #FF6F61;
+    background-color: #FFCE99;
     padding: 1rem 0;
+    border-bottom: 2px solid #FF6F61;
+    width: 100%;
 }
 
 .header-container {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -33,6 +49,49 @@ header {
 .logo-image {
     height: 50px;
     width: auto;
+}
+
+/* Search Container */
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    padding: 0.75rem 1.5rem;
+    width: 60%;
+    border-radius: 25px;  /* Bordas arredondadas */
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #FF6F61;
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.5);  /* Sombra ao focar */
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cta-button {
+    background-color: #FF6F61;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #FF8A75;
 }
 
 .nav-list {
@@ -45,33 +104,10 @@ header {
     font-weight: bold;
     color: #333;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 .nav-list li a:hover {
     color: #FF6F61;
-}
-
-/* User Profile */
-.user-profile {
-    display: flex;
-    align-items: center;
-}
-
-.profile-list {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-.profile-list li a {
-    font-weight: bold;
-    color: #FF6F61;
-    text-decoration: none;
-}
-
-.profile-list li a:hover {
-    color: #FF8A75;
 }
 
 /* Hero Section */
@@ -82,7 +118,7 @@ header {
     background-position: center;
     color: white;
     text-align: center;
-    padding: 5rem 0;
+    padding: 4rem 0;
 }
 
 .hero .overlay {
@@ -91,7 +127,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .hero-content {
@@ -101,26 +137,12 @@ header {
 
 .hero-content h1 {
     font-size: 3rem;
+    font-weight: bold;
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin-top: 1rem;
-}
-
-.cta-button {
-    margin-top: 1.5rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #FF6F61;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.cta-button:hover {
-    background-color: #FF8A75;
 }
 
 /* Botões de Categoria */
@@ -136,214 +158,20 @@ header {
     font-weight: bold;
     border-radius: 20px;
     color: white;
+    background-color: #FF6F61;
     text-decoration: none;
-}
-
-.especialistas {
-    background-color: #6A0DAD;
-}
-
-.personalidades {
-    background-color: #1E90FF;
-}
-
-.entusiastas {
-    background-color: #FF6F61; /* Laranja para Entusiastas Apaixonados */
-}
-
-/* Botão para exibir as categorias */
-.categories-toggle-section {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-.toggle-button {
-    padding: 1rem 2rem;
-    background-color: white;
-    color: black;
-    border: 2px solid black; /* Borda preta */
-    border-radius: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.toggle-button:hover {
-    background-color: #FF6F61;
-    color: white;
-    border-color: #FF6F61;
-}
-
-/* Categorias */
-.categories-section {
-    padding: 2rem 0;
-    text-align: center;
-}
-
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.category-box {
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.especialistas-box {
-    background-color: #6A0DAD;
-}
-
-.personalidades-box {
-    background-color: #1E90FF;
-}
-
-.entusiastas-box {
-    background-color: #FF6F61; /* Laranja da Menobel */
-}
-
-/* Modal Styles */
-.modal {
-    display: none; /* Escondido por padrão */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center; /* Centraliza o conteúdo */
-}
-
-.modal-content {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.large-modal {
-    max-width: 600px;
-}
-
-.close {
-    color: #FF6F61;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #FF8A75;
-}
-
-h2 {
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-/* Form Styles */
-.form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    display: block;
-    color: #333; /* Alterado para preto */
-}
-
-input {
-    width: 100%;
-    padding: 0.8rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-input:focus {
-    border-color: #FF6F61;
-    outline: none;
-}
-
-button {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
-.btn-signup {
-    background-color: #FF6F61;
-    color: white;
     transition: background-color 0.3s ease;
 }
 
-.btn-signup:hover {
-    background-color: #FF8A75;
-}
-
-/* Styles for Form */
-#signupForm input[type="text"], 
-#signupForm input[type="email"],
-#signupForm input[type="date"], 
-#signupForm input[type="password"] {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    color: #333; /* Mantendo o texto preto */
-}
-
-#signupForm button {
-    background-color: #FF6F61;
-    color: white;
-}
-
-#signupForm button:hover {
-    background-color: #FF8A75;
-}
-
-/* Helper text */
-.forgot-password {
-    margin-top: 1rem;
-}
-
-.forgot-password a {
-    color: #FF6F61;
-    text-decoration: none;
-}
-
-.forgot-password a:hover {
-    color: #FF8A75;
-}
-
-/* Adding transition to form fields */
-input {
-    transition: all 0.3s ease;
-}
-
-input:hover, input:focus {
-    border-color: #FF6F61;
+.category-button:hover {
+    background-color: #FF8A75; /* Cor no hover */
 }
 
 /* Cards */
+.featured-section {
+    margin-bottom: 3rem;
+}
+
 .featured-section h4 {
     text-align: center;
     font-size: 2rem;
@@ -352,10 +180,10 @@ input:hover, input:focus {
 
 .card-grid {
     display: flex;
+    justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .card {
@@ -363,99 +191,84 @@ input:hover, input:focus {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    width: 220px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 250px;
     padding: 1rem;
+    border: 2px solid #FF6F61;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    background-color: #FFF4E6; /* Fundo claro no hover */
 }
 
-.card-purple {
-    background-color: #6A0DAD;
-    color: white;
+.card-link {
+    text-decoration: none;
+    color: inherit;
 }
 
-.card-blue {
-    background-color: #1E90FF;
-    color: white;
+.card-link:hover .nober-name,
+.card-link:hover .nober-info {
+    color: #FF6F61; /* Cor do texto no hover */
 }
 
-.card-orange {
-    background-color: #FF6F61;
-    color: white;
+/* Seção da Foto de Perfil no Card */
+.profile-photo {
+    margin-bottom: 1rem;
 }
 
+/* Texto dos cards */
 .nober-name {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #FF6F61;
 }
 
 .nober-info {
     font-size: 1rem;
     margin-top: 5px;
+    color: #333;
 }
 
+/* Estilo do botão de chat */
 .chat-button {
-    background-color: #4CAF50;
+    background-color: #E64E36; /* Laranja mais escuro */
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 25px;
     margin: 1rem 0;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre ícone e texto */
 }
 
-/* Remover sublinhado dos links dentro dos cards */
-.card-link {
-    text-decoration: none;
+.chat-button:hover {
+    background-color: #D6452F;
 }
 
-/* Certificar que nenhum texto dentro de elementos linkados tenha sublinhado */
-.card p {
-    text-decoration: none;
+.chat-button i {
+    font-size: 1.2rem; /* Tamanho do ícone */
 }
 
 /* Footer */
 footer {
-    background-color: #f3f3f3;
+    background-color: #FFCE99;
     padding: 1rem 0;
+    width: 100%;
+    margin-top: auto;
 }
 
 .footer-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.footer-divider {
-    border-bottom: 1px solid #FF6F61;
-    margin-bottom: 0.5rem;
-    width: 100%;/
-}
-
-.footer-logo {
-    height: 40px;
-    margin-bottom: 0.5rem;
 }
 
 .footer-container p {
     font-size: 0.9rem;
     color: #333;
-    margin: 0;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .modal-content, .large-modal {
-        width: 90%;
-    }
 }

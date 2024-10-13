@@ -1,148 +1,263 @@
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f3f3f3;
+    background-color: #FFF4E6;
     color: #333;
+    box-sizing: border-box;
 }
 
+/* Cabeçalho */
 header {
+    background-color: #FFCE99;
+    padding: 1rem 0;
+    border-bottom: 2px solid #FF6F61;
+}
+
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #fff;
-}
-
-header .logo img {
-    height: 50px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #FF6F61;
-}
-
-.reference-container {
-    padding: 20px;
-    background-color: #FF6F61;
-    color: white;
-    min-height: 100vh;
-    text-align: center;
-}
-
-.reference-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.reference-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.reference-main {
-    flex: 2;
-    text-align: left;
+.logo-image {
+    height: 40px;
 }
 
-.nober-info {
+.search-bar {
+    flex-grow: 1;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
 }
 
-.nober-image {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
+.search-bar input {
+    width: 300px;
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
-.nober-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.nober-image i {
-    font-size: 150px;
-    color: #FF8A75;
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.nober-details h2 {
-    font-size: 1.8rem;
-    margin: 0;
-}
-
-.nober-details p {
-    margin-bottom: 10px;
-}
-
-.nober-extras h3 {
-    font-size: 1.5rem;
-    margin-top: 20px;
-}
-
-.nober-extras p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-/* Preço e Ação */
-.reference-price {
-    background-color: orange;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    flex: 1;
-}
-
-.reference-price h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.btn-message, .btn-action {
-    background-color: #4CAF50;
+.search-button {
+    background-color: #FF6F61;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-left: 10px;
+    border-radius: 20px;
     cursor: pointer;
-    margin-bottom: 10px;
-    display: block;
-    width: 100%;
-    font-size: 1.2rem;
 }
 
-.btn-message {
-    background-color: #FF8A75;
-}
-
-.btn-action {
+.user-actions .cta-button {
     background-color: #FF6F61;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-footer {
-    background-color: #fff;
-    padding: 20px;
+/* Seção Principal */
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Coluna Esquerda */
+.left-column {
+    width: 60%;
+    padding-right: 2%;
+}
+
+.service-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #FFD700;
+}
+
+.orders-in-queue {
+    font-size: 0.9rem;
+    color: #666;
+    margin-left: 10px;
+}
+
+.nober-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.profile-icon {
+    margin-right: 1rem;
+}
+
+.nober-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.nober-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-btn {
+    background-color: #FF6F61;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.response-time {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.clients ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.client-list li {
+    font-size: 0.9rem;
+    color: #333;
+    padding: 0.5rem 0;
+}
+
+/* Modernização dos Cards */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h3, .card h4 {
+    font-size: 1.5rem;
+    color: #FF6F61;
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Coluna Direita */
+.right-column {
+    width: 35%;
+}
+
+.price-box {
+    background-color: #FFCE99;
+    padding: 1rem;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.price-box h3 {
+    font-size: 2rem;
+    color: #FF6F61;
+}
+
+.delivery-time {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.buy-btn {
+    background-color: #FF6F61;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Serviços Extras */
+.extra-services ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.extra-services li {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Avaliações Melhoradas */
+.reviews {
+    margin-top: 2rem;
+}
+
+.reviews h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.review {
+    background-color: #FFF4E6;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.review-header {
+    font-size: 1rem;
+    color: #333;
+}
+
+.review-comment {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.country {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.rating i {
+    color: #FFD700;
+    margin-right: 5px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #FFCE99;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer-container p {
+    font-size: 0.9rem;
+    color: #333;
 }
